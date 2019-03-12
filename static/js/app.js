@@ -24,9 +24,38 @@ function handleClick(){
   d3.select("#filter-btn").on("click", function() {
     d3.event.preventDefault();
     d3.selectAll('td').remove();
-    generateTable(filterData);
-    });
+
+  var inputValue = d3.select("#datetime").property("value");
+    console.log(inputValue);
+  var filterData = tableData.filter(item => item.datetime === inputValue);
+    console.log(filterData);
+
+  var inputValuecity = d3.select("#city").property("value");
+    console.log(inputValuecity);
+  var filterDatacity = tableData.filter(item => item.city === inputValue);
+    console.log(filterDatacity);
+
+  // var inputValue = d3.select("#country").property("value");
+  //   console.log(inputValue);
+  // var filterData = tableData.filter(item => item.country === inputValue);
+  //   console.log(filterData);
+  //
+  // var inputValue = d3.select("#shape").property("value");
+  //   console.log(inputValue);
+  // var filterData = tableData.filter(item => item.shape === inputValue);
+  //     console.log(filterData);
+  //
+  // var inputValue = d3.select("#comment").property("value");
+  //     console.log(inputValue);
+  // var filterData = tableData.filter(item => item.comment === inputValue);
+  //     console.log(filterData);
+
+  generateTable(filterData);
+
+  });
   };
+
+
 
 handleClick();
 
